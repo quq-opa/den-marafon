@@ -1,5 +1,3 @@
-import DenSaulykMarafony from "./components/DenSaulykMarafony";
-
 export default function Home() {
-  return <DenSaulykMarafony />;
+  return <h1>Тест: страница работает!</h1>;
 }
