@@ -1,5 +1,3 @@
-import DenSaulykMarafony from "./components/DenSaulykMarafony";
-
 export default function Home() {
-  return <DenSaulykMarafony />;
+  return <h1>Hello from Vercel!</h1>;
 }
