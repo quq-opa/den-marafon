@@ -15,11 +15,12 @@ export default function DenSaulykMarafony() {
     e.preventDefault();
     setStatus("loading");
     try {
-      const res = await fetch("/api/register", {
+      const res = await fetch("/.netlify/functions/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+
       if (res.ok) {
         setStatus("success");
         setForm({ name: "", email: "", phone: "", lang: form.lang, note: "" });
@@ -59,112 +60,8 @@ export default function DenSaulykMarafony() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <section className="md:col-span-2 bg-white p-6 rounded-2xl shadow">
-          <img src="/images/page1_X10.png" alt="Hero" className="rounded-xl w-full mb-4 object-cover" />
-          <h2 className="text-3xl font-bold mb-3">
-            {t({ ru: "Возвращаем энергию организма", kz: "Денсаулыққа энергияны қайтару" })}
-          </h2>
-          <p className="text-gray-700 mb-4">
-            {t({
-              ru: "3 дня: слушаем тело, учимся восстанавливать силы и становиться легче.",
-              kz: "3 күн: өз ағзаңызды тыңдап, қалпына келтіру жолын үйрену.",
-            })}
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div className="p-4 border rounded-lg">
-              <img src="/images/page1_X1.png" alt="Day1" className="rounded-md mb-2 object-cover" />
-              <h3 className="font-semibold">{t({ ru: "1-й день", kz: "1-күн" })}</h3>
-              <p className="text-sm text-gray-600">
-                {t({
-                  ru: "Почему уходит энергия и как её вернуть",
-                  kz: "Ағза энергиясын неге жоғалтады және оны қалай қайтаруға болады",
-                })}
-              </p>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <img src="/images/page1_X1.png" alt="Day2" className="rounded-md mb-2 object-cover" />
-              <h3 className="font-semibold">{t({ ru: "2-й день", kz: "2-күн" })}</h3>
-              <p className="text-sm text-gray-600">
-                {t({
-                  ru: "Правила тарелки: питание для лёгкости",
-                  kz: "Тәрелке ережелері: энергия мен жеңілдік үшін тамақтану",
-                })}
-              </p>
-            </div>
-            <div className="p-4 border rounded-lg">
-              <img src="/images/page1_X1.png" alt="Day3" className="rounded-md mb-2 object-cover" />
-              <h3 className="font-semibold">{t({ ru: "3-й день", kz: "3-күн" })}</h3>
-              <p className="text-sm text-gray-600">
-                {t({
-                  ru: "Формула быстрого восстановления",
-                  kz: "Жедел қалпына келтіру формуласы",
-                })}
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 border-t pt-4 text-sm text-gray-600">
-            <p>
-              {t({
-                ru: "Прямые эфиры: 19:00 (рус.), 20:00 (қаз.)",
-                kz: "Тікелей эфир уақыты: 19:00 орыс тілінде, 20:00 қазақ тілінде",
-              })}
-            </p>
-          </div>
-        </section>
-
-        <aside className="space-y-6">
-          <div className="bg-white p-4 rounded-2xl shadow">
-            <h3 className="font-semibold mb-2">{t({ ru: "Сарапшылар", kz: "Мамандар" })}</h3>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3">
-                <img src="/images/page1_X2.png" alt="Эксперт1" className="w-12 h-12 rounded-full object-cover" />
-                <div>
-                  <div className="font-medium">{t({ ru: "Молдахметова Райгүл", kz: "Молдахметова Райгүл" })}</div>
-                  <div className="text-sm text-gray-500">
-                    {t({ ru: "Дәрігер-нутрициолог, шығыс медицинасы", kz: "Дәрігер-нутрициолог, шығыс медицинасы" })}
-                  </div>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <img src="/images/page1_X10.png" alt="Эксперт2" className="w-12 h-12 rounded-full object-cover" />
-                <div>
-                  <div className="font-medium">{t({ ru: "Жүсіпбаева Динара", kz: "Жүсіпбаева Динара" })}</div>
-                  <div className="text-sm text-gray-500">
-                    {t({
-                      ru: "Иммунитетті қалпына келтіру және алдын алу",
-                      kz: "Иммунитетті қалпына келтіру және аурулардың алдын алу",
-                    })}
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-            <div className="mt-4">
-              <a
-                href="#register"
-                className="block w-full text-center bg-green-600 text-white px-4 py-2 rounded-lg"
-              >
-                {t({ ru: "Тіркелу", kz: "Тіркелу" })}
-              </a>
-            </div>
-          </div>
-
-          <div className="bg-white p-4 rounded-2xl shadow">
-            <h4 className="font-semibold mb-2">{t({ ru: "Подарок", kz: "Сыйлық" })}</h4>
-            <img src="/images/page1_X1.png" alt="Gift" className="rounded-md mb-2 object-cover" />
-            <p className="text-sm text-gray-600">
-              {t({
-                ru: "Каждому зарегистрировавшемуся — гайд 'Как читать сигналы тела'",
-                kz: "Тіркелгеннен кейін 'Ағзаның сигналдарын қалай білу керек' гайды беріледі",
-              })}
-            </p>
-          </div>
-        </aside>
-
-        <section id="register" className="md:col-span-3 bg-white p-6 rounded-2xl shadow">
+      <main className="max-w-5xl mx-auto p-6">
+        <section id="register" className="bg-white p-6 rounded-2xl shadow">
           <h3 className="text-xl font-bold mb-3">{t({ ru: "Тіркелу формасы", kz: "Тіркелу формасы" })}</h3>
 
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -236,7 +133,6 @@ export default function DenSaulykMarafony() {
                   {status &&
                     status !== "loading" &&
                     status !== "success" &&
-                    status !== null &&
                     status.toString().startsWith("error") && (
                       <span className="text-red-600">
                         {t({ ru: "Қате: өтініш жіберілмеді", kz: "Қате: өтініш жіберілмеді" })}
@@ -246,18 +142,7 @@ export default function DenSaulykMarafony() {
               </div>
             </div>
           </form>
-
-          <p className="text-xs text-gray-500 mt-3">
-            {t({
-              ru: "Сіз тіркелу арқылы хабарламаларды алуға келісесіз.",
-              kz: "Сіз тіркелу арқылы хабарламаларды алуға келісесіз.",
-            })}
-          </p>
         </section>
-
-        <footer className="md:col-span-3 text-center text-sm text-gray-500 mt-6">
-          © {new Date().getFullYear()} {t({ ru: "Денсаулық марафоны", kz: "Денсаулық марафоны" })}
-        </footer>
       </main>
     </div>
   );
